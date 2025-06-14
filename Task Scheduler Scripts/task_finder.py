@@ -7,12 +7,13 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # Email configuration
-SMTP_SERVER = #Add Valid credentials here
-SMTP_PORT = #Add Valid credentials here
-SMTP_USER = #Add Valid credentials here
-SMTP_PASS = #Add Valid credentials here
-EMAIL_FROM = #Add Valid credentials here
-EMAIL_TO = #Add Valid credentials here
+SMTP_SERVER = "mail.privateemail.com"
+SMTP_PORT = 465
+SMTP_USER = "support@disruptionsim.com"
+SMTP_PASS = "Onesmarter@2023"
+EMAIL_FROM = "support@disruptionsim.com"
+EMAIL_TO = "borkarananta028@gmail.com"
+# EMAIL_TO = "akshay.kumar@onesmarter.com"
 
 def parse_trigger(trigger_xml):
     try:
@@ -100,7 +101,7 @@ def list_tasks_with_readable_triggers(subfolder_path):
                     if is_scheduled_today(logic):
                         results.append((t.Name, readable))
 
-    return results 
+    return results
 
 def build_html_email(task_data):
     if not task_data:
@@ -125,7 +126,7 @@ def build_html_email(task_data):
             }
         </style>
     </head>
-    <body>  
+    <body>
         <p><strong>Scheduled Tasks for Today:</strong></p>
         <table>
             <tr><th>Task Name</th><th>Trigger Time</th></tr>
@@ -139,7 +140,7 @@ def build_html_email(task_data):
     </html>
     """
     return html
-  
+
 def send_email(html_body):
     msg = MIMEMultipart("alternative")
     msg["Subject"] = "Scheduled Tasks for Today"
@@ -154,7 +155,7 @@ def send_email(html_body):
 
 if __name__ == "__main__":
     folders = ["EDI Tasks", "DevTasks"]
-    all_tasks = []   
+    all_tasks = []
 
     for folder in folders:
         try:
