@@ -139,7 +139,7 @@ def build_html_email(task_data):
     </html>
     """
     return html
-
+  
 def send_email(html_body):
     msg = MIMEMultipart("alternative")
     msg["Subject"] = "Scheduled Tasks for Today"
