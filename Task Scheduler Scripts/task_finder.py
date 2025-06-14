@@ -154,7 +154,7 @@ def send_email(html_body):
 
 if __name__ == "__main__":
     folders = ["EDI Tasks", "DevTasks"]
-    all_tasks = []
+    all_tasks = []   
 
     for folder in folders:
         try:
