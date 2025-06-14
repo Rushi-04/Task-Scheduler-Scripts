@@ -166,5 +166,3 @@ if __name__ == "__main__":
     html_body = build_html_email(all_tasks)
     send_email(html_body)
     print("Email sent successfully.")
-
-
