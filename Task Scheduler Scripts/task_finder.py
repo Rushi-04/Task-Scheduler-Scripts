@@ -7,13 +7,12 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # Email configuration
-SMTP_SERVER = "mail.privateemail.com"
-SMTP_PORT = 465
-SMTP_USER = "support@disruptionsim.com"
-SMTP_PASS = "Onesmarter@2023"
-EMAIL_FROM = "support@disruptionsim.com"
-EMAIL_TO = "borkarananta028@gmail.com"
-# EMAIL_TO = "akshay.kumar@onesmarter.com"
+SMTP_SERVER = #Add Valid credentials here
+SMTP_PORT = #Add Valid credentials here
+SMTP_USER = #Add Valid credentials here
+SMTP_PASS = #Add Valid credentials here
+EMAIL_FROM = #Add Valid credentials here
+EMAIL_TO = #Add Valid credentials here
 
 def parse_trigger(trigger_xml):
     try:
