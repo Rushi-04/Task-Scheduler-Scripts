@@ -20,5 +20,5 @@ def get_all_scheduled_tasks():
 # Example usage
 tasks = get_all_scheduled_tasks()
 if tasks:
-    print(tasks)  # Displaying first 1000 characters for preview
+    print(tasks)
     
