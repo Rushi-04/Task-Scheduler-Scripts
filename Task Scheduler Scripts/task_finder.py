@@ -100,7 +100,7 @@ def list_tasks_with_readable_triggers(subfolder_path):
                     if is_scheduled_today(logic):
                         results.append((t.Name, readable))
 
-    return results
+    return results 
 
 def build_html_email(task_data):
     if not task_data:
