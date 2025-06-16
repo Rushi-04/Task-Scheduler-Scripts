@@ -161,5 +161,4 @@ if __name__ == "__main__":
     html_body = build_html_email(all_tasks)
     send_email(html_body)
 
-
 #Code Last Updated on 16-06-2025 -- rushi
