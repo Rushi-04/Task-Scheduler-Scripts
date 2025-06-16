@@ -1,19 +1,11 @@
-#2 
 import win32com.client
 from xml.dom import minidom
 from datetime import datetime
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+import requests
 
-# Email configuration
-SMTP_SERVER = "mail.privateemail.com"
-SMTP_PORT = 465
-SMTP_USER = "support@disruptionsim.com"
-SMTP_PASS = "Onesmarter@2023"
-EMAIL_FROM = "support@disruptionsim.com"
-EMAIL_TO = "borkarananta028@gmail.com"
-# EMAIL_TO = "akshay.kumar@onesmarter.com"
+# EMAIL_TO = "borkarrushi028@gmail.com"  # -- Testing
+EMAIL_TO = "akumar@abchldg.com"
+EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
 
 def parse_trigger(trigger_xml):
     try:
@@ -22,7 +14,7 @@ def parse_trigger(trigger_xml):
         start_dt = datetime.fromisoformat(start)
 
         logic = {
-            "start_date": start_dt.date(),   
+            "start_date": start_dt.date(),
             "time": start_dt.time(),
             "type": None,
             "days": [],
@@ -99,7 +91,8 @@ def list_tasks_with_readable_triggers(subfolder_path):
                     xml_str = trig.toxml()
                     readable, logic = parse_trigger(xml_str)
                     if is_scheduled_today(logic):
-                        results.append((t.Name, readable))
+                        #Prefix folder name to task name
+                        results.append((f"{subfolder_path}/{t.Name}", readable))
 
     return results
 
@@ -126,7 +119,7 @@ def build_html_email(task_data):
             }
         </style>
     </head>
-    <body>
+    <body>  
         <p><strong>Scheduled Tasks for Today:</strong></p>
         <table>
             <tr><th>Task Name</th><th>Trigger Time</th></tr>
@@ -142,19 +135,20 @@ def build_html_email(task_data):
     return html
 
 def send_email(html_body):
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = "Scheduled Tasks for Today"
-    msg["From"] = EMAIL_FROM
-    msg["To"] = EMAIL_TO
+    payload = {
+        "email": EMAIL_TO,
+        "subject": "Scheduled Tasks for Today",
+        "body": html_body
+    }
 
-    msg.attach(MIMEText(html_body, "html"))
-
-    with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as server:
-        server.login(SMTP_USER, SMTP_PASS)
-        server.sendmail(EMAIL_FROM, EMAIL_TO, msg.as_string())
+    response = requests.post(EMAIL_API_URL, data=payload)
+    if response.status_code == 200:
+        print(f"Email sent successfully to {EMAIL_TO}")
+    else:
+        print(f"Failed to send email. Status: {response.status_code}, Response: {response.text}")
 
 if __name__ == "__main__":
-    folders = ["EDI Tasks", "DevTasks"]
+    folders = ["DevTasks", "EDI Tasks"]
     all_tasks = []
 
     for folder in folders:
@@ -166,4 +160,5 @@ if __name__ == "__main__":
 
     html_body = build_html_email(all_tasks)
     send_email(html_body)
-    print("Email sent successfully.")
+
+#Code Last Updated on 16-06-2025 -- rushi
