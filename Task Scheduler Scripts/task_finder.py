@@ -22,7 +22,7 @@ def parse_trigger(trigger_xml):
         start_dt = datetime.fromisoformat(start)
 
         logic = {
-            "start_date": start_dt.date(),
+            "start_date": start_dt.date(),   
             "time": start_dt.time(),
             "type": None,
             "days": [],
