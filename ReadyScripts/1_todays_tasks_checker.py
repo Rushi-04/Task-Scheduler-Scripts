@@ -152,7 +152,7 @@ if __name__ == "__main__":
     # folders = ["DevTasks", "EDI Tasks"]  
     folders = ["Microsoft\\Windows\\Application Experience"]
     all_tasks = []  
-
+  
     for folder in folders:
         try:
             tasks = list_tasks_with_readable_triggers(folder)
