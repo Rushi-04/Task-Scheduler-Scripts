@@ -114,7 +114,7 @@ def collect_task_statuses():
                         
                 if not matched_trigger:
                     print("    ↪ No valid time-based trigger matched.")   #-- Debugging
-                        
+                          
             except Exception as e:
                 print(f"[!] Error checking task {task.Name}: {e}")
 
