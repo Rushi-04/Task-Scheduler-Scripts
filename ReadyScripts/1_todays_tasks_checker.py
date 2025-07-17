@@ -55,7 +55,7 @@ def is_scheduled_today(logic):
     month = datetime.today().strftime("%B")
 
     if today < logic.get("start_date", today):
-        return False
+        return False   
 
     trigger_type = logic.get("type")
     if trigger_type == "daily":
@@ -119,7 +119,7 @@ def build_html_email(task_data):
                 background-color: #f2f2f2;
             }
         </style>
-    </head>
+    </head> 
     <body>  
         <p><strong>Scheduled Tasks for Today:</strong></p>  
         <table>
