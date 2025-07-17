@@ -121,7 +121,7 @@ def collect_task_statuses():
     return results
 
 def main():
-    print("[*] Checking Windows tasks scheduled before:", get_cutoff_time().strftime("%H:%M"))
+    print("[*] Checking Windows tasks scheduled before:", get_cutoff_time().strftime("%H:%M"))  
     task_results = collect_task_statuses()
 
     if task_results:
