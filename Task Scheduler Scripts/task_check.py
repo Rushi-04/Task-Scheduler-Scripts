@@ -420,7 +420,7 @@ def get_valid_tasks(subfolder_path):
 
 if 1:
     # subfolder = r"DevTasks" 
-    subfolder = r"" # --- Testing  
+    subfolder = r"Microsoft\Windows\Application Experience" # --- Testing  
 
     all_tasks, today_tasks = get_valid_tasks(subfolder)
 
@@ -443,3 +443,4 @@ if 1:
             print("-" * 50)
     else:
         print("No tasks scheduled to run today.")
+    
