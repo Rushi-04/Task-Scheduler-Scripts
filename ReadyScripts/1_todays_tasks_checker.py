@@ -58,7 +58,7 @@ def is_scheduled_today(logic):
         return False   
 
     trigger_type = logic.get("type")
-    if trigger_type == "daily":
+    if trigger_type == "daily":  
         return (today - logic["start_date"]).days % logic["interval"] == 0
     elif trigger_type == "weekly":
         return weekday in logic["days"]
