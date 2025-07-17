@@ -112,7 +112,7 @@ def collect_task_statuses():
                     else:
                         print("    ↪ Skipped (Not scheduled before cutoff or not today)") #-- Debugging
                         
-                if not matched_trigger:
+                if not matched_trigger:  
                     print("    ↪ No valid time-based trigger matched.")   #-- Debugging
                           
             except Exception as e:
