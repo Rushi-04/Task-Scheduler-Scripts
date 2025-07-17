@@ -149,7 +149,7 @@ def send_email(html_body):
         print(f"Failed to send email. Status: {response.status_code}, Response: {response.text}")
 
 if __name__ == "__main__":
-    # folders = ["DevTasks", "EDI Tasks"]
+    # folders = ["DevTasks", "EDI Tasks"]  
     folders = ["Microsoft\\Windows\\Application Experience"]
     all_tasks = []
 
