@@ -142,7 +142,7 @@ def send_email(html_body):
         "body": html_body
     }
 
-    response = requests.post(EMAIL_API_URL, data=payload)
+    response = requests.post(EMAIL_API_URL, data=payload)  
     if response.status_code == 200:
         print(f"Email sent successfully to {EMAIL_TO}")
     else:
