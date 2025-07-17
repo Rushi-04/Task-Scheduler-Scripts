@@ -122,7 +122,7 @@ def collect_task_statuses():
 
 def main():
     print("[*] Checking Windows tasks scheduled before:", get_cutoff_time().strftime("%H:%M"))  
-    task_results = collect_task_statuses()
+    task_results = collect_task_statuses()  
 
     if task_results:
         html = build_html_table(task_results)
