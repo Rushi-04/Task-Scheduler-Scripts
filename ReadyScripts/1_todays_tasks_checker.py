@@ -29,10 +29,10 @@ def parse_trigger(trigger_xml):
             days = trigger.getElementsByTagName("DaysOfWeek")[0]
             logic["days"] = [d.nodeName for d in days.childNodes if d.nodeType == d.ELEMENT_NODE]
             readable += f" every {', '.join(logic['days'])} of every week"
-        elif trigger.getElementsByTagName("ScheduleByMonth"):
+        elif trigger.getElementsByTagName("ScheduleByMonth"):  
             logic["type"] = "monthly"
             months = trigger.getElementsByTagName("Months")[0]
-            days = trigger.getElementsByTagName("DaysOfMonth")[0]
+            days = trigger.getElementsByTagName("DaysOfMonth")[0]  
             logic["months"] = [m.nodeName for m in months.childNodes if m.nodeType == m.ELEMENT_NODE]
             logic["days"] = [int(d.firstChild.nodeValue) for d in days.childNodes if d.nodeType == d.ELEMENT_NODE]
             readable += f" on day {', '.join(map(str, logic['days']))} of {', '.join(logic['months'])}"
