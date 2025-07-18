@@ -69,7 +69,7 @@ def check_tasks():
                     """)
 
     
-    if total_failed > 0:
+    if total_failed > 12:
         html_table = f"""
         <html>
         <body>
