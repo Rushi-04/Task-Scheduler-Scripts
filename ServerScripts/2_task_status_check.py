@@ -3,8 +3,6 @@ from datetime import datetime
 from tzlocal import get_localzone
 import requests
 
-
-
 TARGET_FOLDERS = ["DevTasks", "EDI Tasks"]
 SUCCESS_CODES = {0x0, 0xE0434352, 0x41301}
 # CUTOFF_TIME_STR = "09:05"  # HH:MM  --->   CHANGE THIS 
