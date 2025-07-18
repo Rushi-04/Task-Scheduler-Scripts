@@ -112,4 +112,4 @@ def check_tasks():
 
 
 if __name__ == "__main__":
-    check_tasks
+    check_tasks()
