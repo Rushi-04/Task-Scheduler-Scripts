@@ -75,7 +75,7 @@ def check_tasks():
         <body>
         <p>Hi,</p>
         <p>The following tasks failed before <strong>{CUTOFF_TIME_STR}</strong> today:</p>
-        <table border="50" cellpadding="6" cellspacing="0">
+        <table border="1" cellpadding="6" cellspacing="0">
             <tr>
                 <th>Folder</th>
                 <th>Task Name</th>
