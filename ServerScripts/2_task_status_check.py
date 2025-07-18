@@ -84,7 +84,7 @@ def check_tasks():
                 <th>Result Code</th>
                 <th>Status</th>
             </tr>
-            {''.join(htmlrows)}
+            {''.join(html_rows)}
         </table>
         <p>Total Failed: <strong>{total_failed}</strong></p>
         </body>
