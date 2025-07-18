@@ -7,7 +7,7 @@ TARGET_FOLDERS = ["DevTasks", "EDI Tasks"]
 SUCCESS_CODES = {0x0, 0xE0434352, 0x41301}
 # CUTOFF_TIME_STR = "09:05"  # HH:MM  --->   CHANGE THIS 
 now_local = datetime.now(get_localzone())
-CUTOFF_TIME_STR = now_local.strftime("%H:%M")
+CUTOFF_TIME_STR = now_local.strftime("")
 
 EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
 EMAIL_SUBJECT = "Scheduled Task Status Report"
