@@ -19,7 +19,7 @@ def get_localized_datetime(com_datetime):
     try:
         if com_datetime:
             return com_datetime.replace(tzinfo=None).astimezone(get_localzone())
-    except Exception:
+    except Exception:  
         return None
     return None
 
