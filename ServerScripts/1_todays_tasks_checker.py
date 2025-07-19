@@ -144,7 +144,10 @@ def send_email(html_body):
         }
 
         response = requests.post(EMAIL_API_URL, data=payload)
-        
+        if response.status_code == 200:
+            print(f"Email sent successfully to {recipient}")
+        else:
+            print(f"Failed to send email to {recipient}. Status: {response.status_code}, Response: {response.text}")
 
 
 if __name__ == "__main__":
