@@ -54,16 +54,7 @@ def is_scheduled_today(logic):
     day = datetime.today().day
     month = datetime.today().strftime("%B")
 
-    if today < logic.get("start_date", today):   
-        return False   
 
-    trigger_type = logic.get("type")
-    if trigger_type == "daily":  
-        return (today - logic["start_date"]).days % logic["interval"] == 0
-    elif trigger_type == "weekly":
-        return weekday in logic["days"]
-    elif trigger_type == "monthly":
-        return (day in logic["days"]) and (month in logic["months"])
 
     return False
 
