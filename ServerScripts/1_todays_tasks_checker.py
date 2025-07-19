@@ -151,7 +151,7 @@ def send_email(html_body):
 
 
 if __name__ == "__main__":
-    # folders = ["DevTasks", "EDI Tasks"]  
+    folders = ["DevTasks", "EDI Tasks"]  
     # folders = ["Microsoft\\Windows\\Application Experience"]
     all_tasks = []  
   
