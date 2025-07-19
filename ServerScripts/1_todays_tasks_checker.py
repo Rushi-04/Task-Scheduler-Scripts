@@ -5,7 +5,7 @@ import requests
 
 EMAIL_TO = ["borkarananta028@gmail.com", "akumar@abchldg.com"]  # -- Testing
 # EMAIL_TO = "akumar@abchldg.com"
-
+EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
 
 def parse_trigger(trigger_xml):
     try:
