@@ -160,7 +160,7 @@ if __name__ == "__main__":
             tasks = list_tasks_with_readable_triggers(folder)
             all_tasks.extend(tasks) 
         except Exception as e:
-            print(f"Error accessing folder '{}': {e}")
+            print(f"Error accessing folder '{folder}': {e}")
 
     html_body = build_html_email(all_tasks)
     send_email(html_body) 
