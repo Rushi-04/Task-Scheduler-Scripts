@@ -158,7 +158,7 @@ if __name__ == "__main__":
     for folder in folders:
         try:
             tasks = list_tasks_with_readable_triggers(folder)
-             
+            all_tasks.extend(tasks) 
         except Exception as e:
             print(f"Error accessing folder '{folder}': {e}")
 
