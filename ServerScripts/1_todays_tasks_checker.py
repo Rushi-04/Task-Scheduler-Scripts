@@ -124,9 +124,9 @@ def build_html_email(task_data):
         <p><strong>Scheduled Tasks for Today:</strong></p>  
         <table>
             <tr><th>Task Name</th><th>Trigger Time</th></tr>
-    """   
+    """    
     for task_name, trigger in task_data:
-        html += f"<tr><td>{task_name}</td><td>{trigger}</td></tr>"
+        html += f"<tr><td>{task_name}</td><td>{trigger}</td></tr>" 
 
     html += """
         </table>
