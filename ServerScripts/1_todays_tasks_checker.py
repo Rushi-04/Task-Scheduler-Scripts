@@ -138,7 +138,8 @@ def build_html_email(task_data):
 def send_email(html_body):
     for recipient in EMAIL_TO:
         payload = {
-            
+            "email": recipient,
+            "subject": "Scheduled Tasks for Today",
             "body": html_body
         }
 
