@@ -140,7 +140,7 @@ def send_email(html_body):
         payload = {
             "email": recipient,
             "subject": "Scheduled Tasks for Today",
-            
+            "body": html_body
         }
 
         response = requests.post(EMAIL_API_URL, data=payload)
