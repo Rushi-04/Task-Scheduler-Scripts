@@ -121,7 +121,7 @@ def build_html_email(task_data):
         </style>
     </head> 
     <body>  
-        <p><strong>0</strong></p>  
+        <p><strong>Scheduled Tasks for Today:</strong></p>  
         <table>
             <tr><th>Task Name</th><th>Trigger Time</th></tr>
     """    
