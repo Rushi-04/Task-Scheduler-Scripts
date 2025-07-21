@@ -76,7 +76,7 @@ def list_tasks_with_readable_triggers(subfolder_path):
         folder = folder.GetFolder(part)
 
     tasks = folder.GetTasks(0)
-    
+    results = []
 
     for t in tasks:
         if not t.Enabled:
