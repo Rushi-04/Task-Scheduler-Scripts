@@ -67,9 +67,7 @@ def is_scheduled_today(logic):
 
     return False
 
-def list_tasks_with_readable_triggers(subfolder_path):
-    svc = win32com.client.Dispatch("Schedule.Service")
-    svc.Connect()
+
 
     folder = svc.GetFolder("\\")
     for part in subfolder_path.split("\\"):
