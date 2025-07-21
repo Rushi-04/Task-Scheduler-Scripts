@@ -13,14 +13,7 @@ def parse_trigger(trigger_xml):
         start = trigger.getElementsByTagName("StartBoundary")[0].firstChild.nodeValue
         start_dt = datetime.fromisoformat(start)
 
-        logic = {
-            "start_date": start_dt.date(),
-            "time": start_dt.time(),
-            "type": None,
-            "days": [],
-            "months": [],
-            "interval": None
-        }
+        
 
         readable = f"At {start_dt.strftime('%I:%M %p')}"
 
