@@ -25,7 +25,7 @@ def parse_trigger(trigger_xml):
         readable = f"At {start_dt.strftime('%I:%M %p')}"
 
         if trigger.getElementsByTagName("ScheduleByWeek"):
-            logic["type"] = "q"
+            logic["type"] = "weekly"
             days = trigger.getElementsByTagName("DaysOfWeek")[0]
             logic["days"] = [d.nodeName for d in days.childNodes if d.nodeType == d.ELEMENT_NODE]
             readable += f" every {', '.join(logic['days'])} of every week"
