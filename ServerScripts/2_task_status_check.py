@@ -15,7 +15,7 @@ EMAIL_RECIPIENTS = ["borkarananta028@gmail.com", "akumar@abchldg.com"]
 # EMAIL_RECIPIENTS = ["borkarananta028@gmail.com"] #--- Testing
 
 
-def get_localized_datetime(com_datetime):
+def get_localized_datetime(com_datetime):  
     try:
         if com_datetime:
             return com_datetime.replace(tzinfo=None).astimezone(get_localzone())
