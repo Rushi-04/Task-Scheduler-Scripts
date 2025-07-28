@@ -82,7 +82,7 @@ def list_tasks_with_readable_triggers(subfolder_path):
         if not t.Enabled:
             continue
 
-        task_xml = t.Xml
+        task_xml = t.Xml    
         dom = minidom.parseString(task_xml)
         triggers_node = dom.getElementsByTagName("Triggers")
 
