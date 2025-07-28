@@ -88,7 +88,7 @@ def list_tasks_with_readable_triggers(subfolder_path):
 
         if triggers_node:
             for trig in triggers_node[0].childNodes:
-                if trig.nodeType == trig.ELEMENT_NODE:
+                if trig.nodeType == trig.ELEMENT_NODE:    
                     xml_str = trig.toxml()
                     readable, logic = parse_trigger(xml_str)
                     if is_scheduled_today(logic):
