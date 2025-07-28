@@ -80,7 +80,7 @@ def list_tasks_with_readable_triggers(subfolder_path):
 
     for t in tasks:
         if not t.Enabled:
-            continue
+            continue   
 
         task_xml = t.Xml    
         dom = minidom.parseString(task_xml)
