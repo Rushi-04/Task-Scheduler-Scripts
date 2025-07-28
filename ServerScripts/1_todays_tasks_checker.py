@@ -74,7 +74,7 @@ def list_tasks_with_readable_triggers(subfolder_path):
     folder = svc.GetFolder("\\")
     for part in subfolder_path.split("\\"):
         folder = folder.GetFolder(part)
-
+  
     tasks = folder.GetTasks(0)
     results = []
 
