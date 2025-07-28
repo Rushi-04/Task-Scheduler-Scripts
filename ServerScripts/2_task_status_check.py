@@ -12,8 +12,8 @@ CUTOFF_TIME_STR = now_local.strftime("%H:%M")
 EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
 EMAIL_SUBJECT = "Scheduled Task Status Report"
 EMAIL_RECIPIENTS = ["borkarananta028@gmail.com", "akumar@abchldg.com"]
-# EMAIL_RECIPIENTS = ["borkarananta028@gmail.com"] #--- Testing
-
+# EMAIL_RECIPIENTS = ["borkarananta028@gmail.com"] #--- Testing    
+  
 
 def get_localized_datetime(com_datetime):  
     try:
