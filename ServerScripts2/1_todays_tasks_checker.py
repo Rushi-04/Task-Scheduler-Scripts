@@ -7,7 +7,7 @@ import requests
 EMAIL_TO = ["borkarananta028@gmail.com", "osvsethi@abchldg.com", "akumar@abchldg.com"] 
 EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
 
-EXCLUDE_TASK_KEYWORDS = [ "Adobe", "Microsoft", "OneDrive" ]
+EXCLUDE_TASK_KEYWORDS = ["Adobe", "Microsoft", "OneDrive", "Hourly_taskchecker", "ITSPlatformSelfHealUtility"]
 
 def is_system_task(task_name):
     return any(keyword.lower() in task_name.lower() for keyword in EXCLUDE_TASK_KEYWORDS)
