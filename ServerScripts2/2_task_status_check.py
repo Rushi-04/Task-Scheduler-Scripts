@@ -59,7 +59,7 @@ def check_tasks():
             last_run = get_localized_datetime(task.LastRunTime)
             last_result = task.LastTaskResult
             last_result_hex = hex(last_result & 0xFFFFFFFF)
-
+   
             definition = task.Definition
             triggers = definition.Triggers
 
