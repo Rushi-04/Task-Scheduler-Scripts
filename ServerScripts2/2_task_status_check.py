@@ -12,7 +12,7 @@ EMAIL_SUBJECT = "Scheduled Task Status Report"
 EMAIL_RECIPIENTS = ["borkarananta028@gmail.com", "akumar@abchldg.com", "osvsethi@abchldg.com"]
 
 EXCLUDE_TASK_KEYWORDS = ["Adobe", "Microsoft", "OneDrive", "Hourly_taskchecker", "ITSPlatformSelfHealUtility", "TASK20240726010550", "User_Feed_Synchronization", "ZAKIPOINT DAILY", "ZAKIPOINT WEEKLY ELIGIBILITY"]
-
+   
 def is_system_task(task_name):
     return any(keyword.lower() in task_name.lower() for keyword in EXCLUDE_TASK_KEYWORDS)
 
