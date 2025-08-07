@@ -50,7 +50,7 @@ def check_tasks():
         tasks = folder.GetTasks(1)
 
         for task in tasks:
-            if not task.Enabled:
+            if not task.Enabled:  
                 continue
             if folder_path == "\\" and is_system_task(task.Name):
                 continue
