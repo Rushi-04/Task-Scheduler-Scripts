@@ -29,7 +29,7 @@ def get_localized_datetime(com_datetime):
 
 def format_dt(dt):
     return dt.strftime('%Y-%m-%d %H:%M:%S') if dt else 'N/A'
-
+   
 def check_tasks():
     scheduler = win32com.client.Dispatch("Schedule.Service")
     scheduler.Connect()
