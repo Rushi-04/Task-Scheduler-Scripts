@@ -42,7 +42,7 @@ def check_tasks():
 
     print(f"[*] Checking Windows tasks that ran or were supposed to run before: {CUTOFF_TIME_STR}")
 
-    html_rows = []
+    html_rows = []   
     total_failed = 0
 
     for folder_path in TARGET_FOLDERS:
