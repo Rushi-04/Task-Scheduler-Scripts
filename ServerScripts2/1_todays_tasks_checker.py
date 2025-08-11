@@ -180,9 +180,21 @@ from xml.dom import minidom
 from datetime import datetime
 import requests
 
-EMAIL_TO = ["borkarananta028@gmail.com"]  # -- Testing
+EMAIL_TO = ["borkarananta028@gmail.com"]  # Testing recipients
 # EMAIL_TO = ["borkarananta028@gmail.com", "osvsethi@abchldg.com", "akumar@abchldg.com"]
 EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
+
+# Allowed disabled tasks list
+ALLOWED_DISABLED_TASKS = [
+    "CBC p42", "Claim Monitoring Alert", "Daily Failed Scheduled Tasks Report", "One Time Reboot",
+    "taskt-anthem_retention_account_automation.xml", "taskt-anthem_retention_account_automation_Echo.xml",
+    "taskt-anthem_standard_account_automation.xml", "taskt-anthem_standard_account_automation_Echo.xml",
+    "taskt-IpSwitchCommand - MagellanMonthlyTask.xml", "taskt-IpSwitchCommand.xml",
+    "taskt-WEXHealthCloudAutomation_0.xml", "taskt-WEXHealthCloudAutomation_1.xml", "UHC TRI",
+    "TRI 834 EMPIRERX", "P42 WGS 834", "OCU ANTHEM 834 TO WGS", "MIRA 834 TRUSTMARK",
+    "HWL 834 EMPIRX", "ESI Express Script"
+] 
+
 
 EXCLUDE_TASK_KEYWORDS = [
     "Adobe", "Microsoft", "OneDrive", "Hourly_taskchecker",
@@ -311,7 +323,20 @@ def build_html_email(enabled_tasks, disabled_tasks):
             html += "<table><tr><th>Task Name</th><th>Trigger Time</th></tr>"
             for task_name, trigger, _ in disabled_tasks:
                 html += f"<tr><td>{task_name}</td><td>{trigger}</td></tr>"
-            html += "</table>"
+            html += "</table><br>"
+
+    # Extra Disabled Task Tampering Check
+    unexpected_disabled = [
+        task_name for task_name, _, _ in disabled_tasks
+        if not any(allowed.lower() in task_name.lower() for allowed in ALLOWED_DISABLED_TASKS)
+    ]
+
+    html += "<p><strong>⚠ Disabled Task Alert:</strong></p>"
+    if unexpected_disabled:
+        for task in unexpected_disabled:
+            html += f"<p style='color:red;'>{task} task is disabled.</p>"
+    else:
+        html += "<p>No other task disabled.</p>"
 
     html += "</body></html>"
     return html
@@ -352,6 +377,7 @@ if __name__ == "__main__":
     html_body = build_html_email(all_enabled, all_disabled)
     send_email(html_body)
 
-disabled_tasks = ["CBC p42", "Claim Monitoring Alert", "Daily Failed Scheduled Tasks Report", "One Time Reboot", "taskt-anthem_retention_account_automation.xml", "taskt-anthem_retention_account_automation_Echo.xml", "taskt-anthem_standard_account_automation.xml", "taskt-anthem_standard_account_automation_Echo.xml", "taskt-IpSwitchCommand - MagellanMonthlyTask.xml", "taskt-IpSwitchCommand.xml", "taskt-WEXHealthCloudAutomation_0.xml", "taskt-WEXHealthCloudAutomation_1.xml", "UHC TRI", "TRI 834 EMPIRERX", "P42 WGS 834", "OCU ANTHEM 834 TO WGS", "MIRA 834 TRUSTMARK", "HWL 834 EMPIRX", "ESI Express Script"] 
+
+# disabled_tasks = ["CBC p42", "Claim Monitoring Alert", "Daily Failed Scheduled Tasks Report", "One Time Reboot", "taskt-anthem_retention_account_automation.xml", "taskt-anthem_retention_account_automation_Echo.xml", "taskt-anthem_standard_account_automation.xml", "taskt-anthem_standard_account_automation_Echo.xml", "taskt-IpSwitchCommand - MagellanMonthlyTask.xml", "taskt-IpSwitchCommand.xml", "taskt-WEXHealthCloudAutomation_0.xml", "taskt-WEXHealthCloudAutomation_1.xml", "UHC TRI", "TRI 834 EMPIRERX", "P42 WGS 834", "OCU ANTHEM 834 TO WGS", "MIRA 834 TRUSTMARK", "HWL 834 EMPIRX", "ESI Express Script"] 
 
 # now again I want a change, I am giving you a list of disabled task names, so if in our list of disabled tasks if any of the task other than this is present (means any other task other than this is disabled) then mail that --> {task name} task is disabled., otherwise mail no other task disabled, ok got my point , we are doing this because someone is going on server and disabling the tasks, so I think this will help
