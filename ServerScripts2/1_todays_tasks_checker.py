@@ -359,7 +359,7 @@ def send_email(html_body):
             print(f"Error while sending email to {recipient}: {e}")
 
 if __name__ == "__main__":
-    folders = ["\\", "\\EDI Tasks"]
+    folders = ["\\", "\\EDI Tasks"] 
     all_enabled = []
     all_disabled = []  
 
