@@ -361,7 +361,7 @@ def send_email(html_body):
 if __name__ == "__main__":
     folders = ["\\", "\\EDI Tasks"]
     all_enabled = []
-    all_disabled = []
+    all_disabled = []  
 
     for folder in folders:
         try:
