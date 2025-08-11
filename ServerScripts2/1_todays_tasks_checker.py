@@ -375,7 +375,7 @@ if __name__ == "__main__":
     all_disabled.sort(key=lambda x: x[2])
 
     html_body = build_html_email(all_enabled, all_disabled)
-    send_email(html_body)
+    send_email(html_body) 
 
 
 # disabled_tasks = ["CBC p42", "Claim Monitoring Alert", "Daily Failed Scheduled Tasks Report", "One Time Reboot", "taskt-anthem_retention_account_automation.xml", "taskt-anthem_retention_account_automation_Echo.xml", "taskt-anthem_standard_account_automation.xml", "taskt-anthem_standard_account_automation_Echo.xml", "taskt-IpSwitchCommand - MagellanMonthlyTask.xml", "taskt-IpSwitchCommand.xml", "taskt-WEXHealthCloudAutomation_0.xml", "taskt-WEXHealthCloudAutomation_1.xml", "UHC TRI", "TRI 834 EMPIRERX", "P42 WGS 834", "OCU ANTHEM 834 TO WGS", "MIRA 834 TRUSTMARK", "HWL 834 EMPIRX", "ESI Express Script"] 
