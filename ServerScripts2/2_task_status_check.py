@@ -152,7 +152,7 @@ from datetime import datetime
 from tzlocal import get_localzone
 import requests
 
-# ===== Configuration =====
+
 TARGET_FOLDERS = ["\\", "\\EDI Tasks"]
 SUCCESS_CODES = {0x0, 0xE0434352, 0x41301}
 
@@ -167,7 +167,6 @@ EXCLUDE_TASK_KEYWORDS = [
     "ZAKIPOINT WEEKLY ELIGIBILITY"
 ]
 
-# This is the list of tasks you EXPECT to be disabled
 EXPECTED_DISABLED_TASKS = [
     "CBC p42", "Claim Monitoring Alert", "Daily Failed Scheduled Tasks Report",
     "One Time Reboot", "taskt-anthem_retention_account_automation.xml",
@@ -213,7 +212,7 @@ def check_tasks():
 
     html_rows = []
     total_failed = 0
-    unexpected_disabled = []  # To store disabled tasks not in expected list
+    unexpected_disabled = []  
 
     for folder_path in TARGET_FOLDERS:
         folder = scheduler.GetFolder(folder_path)
@@ -222,7 +221,7 @@ def check_tasks():
         for task in tasks:
             task_name = task.Name
 
-            # Skip system tasks if in root folder
+            
             if folder_path == "\\" and is_system_task(task_name):
                 continue
 
@@ -230,7 +229,7 @@ def check_tasks():
             if not task.Enabled:
                 if task_name not in EXPECTED_DISABLED_TASKS:
                     unexpected_disabled.append(task_name)
-                continue  # Disabled tasks don't go into fail/miss check
+                continue  # Disabled tasks don't go into fail check
 
             last_run = get_localized_datetime(task.LastRunTime)
             last_result = task.LastTaskResult
