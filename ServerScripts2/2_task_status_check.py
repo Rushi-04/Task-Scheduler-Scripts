@@ -158,7 +158,8 @@ SUCCESS_CODES = {0x0, 0xE0434352, 0x41301}
 
 EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
 EMAIL_SUBJECT = "Scheduled Task Status Report"
-EMAIL_RECIPIENTS = ["borkarananta028@gmail.com", "akumar@abchldg.com", "osvsethi@abchldg.com"]
+# EMAIL_RECIPIENTS = ["borkarananta028@gmail.com", "akumar@abchldg.com", "osvsethi@abchldg.com"]
+EMAIL_RECIPIENTS = ["borkarananta028@gmail.com"] # Testing
 
 EXCLUDE_TASK_KEYWORDS = [
     "Adobe", "Microsoft", "OneDrive", "Hourly_taskchecker",
@@ -276,7 +277,6 @@ def check_tasks():
                     </tr>
                 """)
 
-    # ===== Build Email HTML =====
     if total_failed > 0:
         html_table = f"""
         <html>
@@ -304,7 +304,7 @@ def check_tasks():
         <p>All tasks executed successfully before <strong>{CUTOFF_TIME_STR}</strong> today.</p>
         """
 
-    # ===== Add Disabled Task Alert Section =====
+   
     html_table += "<hr><p><strong>⚠ Disabled Task Alert:</strong></p><ul>"
     if unexpected_disabled:
         for task in unexpected_disabled:
@@ -313,7 +313,7 @@ def check_tasks():
         html_table += "<li>No other task disabled.</li>"
     html_table += "</ul></body></html>"
 
-    # ===== Send Email =====
+
     for recipient in EMAIL_RECIPIENTS:
         payload = {
             "email": recipient,
