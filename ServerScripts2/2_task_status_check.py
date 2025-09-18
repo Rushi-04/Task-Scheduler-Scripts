@@ -154,12 +154,12 @@ import requests
 
 
 TARGET_FOLDERS = ["\\", "\\EDI Tasks"]
-SUCCESS_CODES = {0x0, 0xE0434352, 0x41301}
+SUCCESS_CODES = {0x0, 0x1, 0xE0434352, 0x41301}
 
 EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
 EMAIL_SUBJECT = "Scheduled Task Status Report"
-# EMAIL_RECIPIENTS = ["borkarananta028@gmail.com", "akumar@abchldg.com", "osvsethi@abchldg.com"]
-EMAIL_RECIPIENTS = ["borkarananta028@gmail.com"] # Testing
+EMAIL_RECIPIENTS = ["borkarananta028@gmail.com", "akumar@abchldg.com", "osvsethi@abchldg.com"]
+# EMAIL_RECIPIENTS = ["borkarananta028@gmail.com"] # Testing
 
 EXCLUDE_TASK_KEYWORDS = [
     "Adobe", "Microsoft", "OneDrive", "Hourly_taskchecker",
