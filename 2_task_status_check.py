@@ -5,7 +5,8 @@ import requests
 
 
 TARGET_FOLDERS = ["\\", "\\EDI Tasks"]
-SUCCESS_CODES = {0x0, 0x1, 0xE0434352, 0x41301}
+SUCCESS_CODES = {0x0, 0xE0434352, 0x41301}
+# SUCCESS_CODES = {0x0, 0x1, 0xE0434352, 0x41301}
 
 EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
 EMAIL_SUBJECT = "Scheduled Task Status Report"
