@@ -1,3 +1,10 @@
 ServerScripts2 has latest updated code 
 
 and the last code are to send.
+
+
+1_todays_tasks_checker.py will run once a day.
+
+and 
+
+2_task_status_check.py will run in several intervals in a day.

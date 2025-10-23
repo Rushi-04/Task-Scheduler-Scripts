@@ -4,7 +4,7 @@ from datetime import datetime
 import requests
 
 # EMAIL_TO = ["borkarananta028@gmail.com"]  # Testing recipients
-EMAIL_TO = ["borkarananta028@gmail.com", "osvsethi@abchldg.com", "akumar@abchldg.com"]
+EMAIL_TO = ["borkarananta028@gmail.com", "osvsethi@abchldg.com", "akumar@abchldg.com", "rjones@abchldg.com"]
 EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
 
 
@@ -154,7 +154,7 @@ def build_html_email(enabled_tasks, disabled_tasks):
         if not any(allowed.lower() in task_name.lower() for allowed in ALLOWED_DISABLED_TASKS)
     ]
 
-    html += "<p><strong>⚠ Disabled Task Alert:</strong></p>"
+    html += "<p><strong> Disabled Task Alert:</strong></p>"
     if unexpected_disabled:
         for task in unexpected_disabled:
             html += f"<p style='color:red;'>{task} task is disabled.</p>"
