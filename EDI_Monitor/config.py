@@ -611,6 +611,20 @@ TASKS = [
             "days": ["monday"],
             "time": "08:00"
         }
+    },
+    {
+        "id": "VBA_625_834",
+        "task_folder": r"\EDI Tasks",
+        "task_name": "625 VBA 834",
+        "parser": "vba_625",
+
+        "file_prefix": "vba",
+        "file_extension": ".txt",
+
+        "schedule": {
+            "days": ["monday"],
+            "time": "08:05"
+        }
     }
 ]
 
@@ -681,7 +695,6 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 # MONDAY TASKS
 
-# \EDI Tasks/L152 ANTHEM 834 TO WGS	At 08:00 AM every Monday of every week, starting 07/19/2022
 # \EDI Tasks/625 VBA 834	At 08:05 AM every Monday of every week, starting 01/01/2024
 # \EDI Tasks/DELTA P625 834	At 08:45 AM every Monday of every week, starting 10/20/2023
 # \EDI Tasks/MEI SAVRX 834	At 08:45 AM every Monday of every week, starting 08/26/2024
@@ -695,147 +708,12 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 # TEMPLATE
 
-We have to add a new task now, this is the required info you requested to create a new task.
+# We have to add a new task now, this is the required info you requested to create a new task.
 
-one line info: \EDI Tasks/L152 ANTHEM 834 TO WGS	At 08:00 AM every Monday of every week, starting 07/19/2022
+# one line info: \EDI Tasks/625 VBA 834	At 08:05 AM every Monday of every week, starting 01/01/2024
 
-Task Name: L152 ANTHEM 834 TO WGS
-Log Filename: trace.txt
-Log Location: C:\Transfer_Programs\ANTHEM_WGS\834_Pgms\152
-Sample : 
+# Task Name: 625 VBA 834
+# Log Filename: trace.txt
+# Log Location: C:\Transfer_Programs\VBA\P625
+# Sample : 
 
-
-
-Processing Line 1 [TRACE  C:\Transfer_Programs\ANTHEM_WGS\834_Pgms\152\trace.txt]
-
-
-
-Processing Line 2 [LOG C:\Transfer_Programs\ANTHEM_WGS\834_Pgms\152\log.txt]
-
-
-
-Processing Line 3 [Connect]
-
-Finding Host edi-sftp.anthem.com ...
-
-Connecting to 162.95.220.27:22
-
-Connected to 162.95.220.27:22 in 0.024998 seconds, Waiting for Server Response
-
-Server Welcome: SSH-2.0-VShell_4_6_3_2690 VShell
-
-Client Version: SSH-2.0-WS_FTP-12.9.0-0
-
-RSA Signature Verified
-
-Session Keys Created
-Ciphers Created
-
-New Client->Server ciphers in place.
-
-New Client->Server ciphers in place.
-
-Completed SSH Key Exchange.  New Keys in place.
-
-Trying authentication method: "password"
-
-Attention:
-
-This is a restricted computer system and for authorized use only. Unauthorized use of this system may result in disciplinary action and/or civil and criminal penalties. Failure to maintain the confidentiality of sensitive information may subject the user to penalties under applicable laws. By using this system, the user consents to monitoring, inspection and disclosure of all activity for security purposes.
-
-User Authenticated OK!
-
-Completed SSH User Authentication.
-
-Started subsystem "sftp" on channel 0760a2ce
-
-SFTP Protocol Version 4 OK
-
-Server supports SFTP Extension: newline@vandyke.com
-
-        00 00 00 02 0d 0a
-
-Server supports SFTP Extension: newline
-
-        0d 0a
-
-Server supports SFTP Extension: default-fs-attribs@vandyke.com
-
-        00 00 00 01 00 00 00 09 5c 2f 3a 2a 3f 22 3c 3e 7c 00 00 00 17 00 00 00 04 43 4f 4d 31 00 00 00
-
-        04 43 4f 4d 32 00 00 00 04 43 4f 4d 33 00 00 00 04 43 4f 4d 34 00 00 00 04 43 4f 4d 35 00 00 00
-
-        ...
-
-Server supports SFTP Extension: supported
-
-        80 00 03 f9 00 00 00 17 00 00 09 ff 00 1f 01 ff 00 02 00 00 00 00 00 0f 73 70 61 63 65 2d 61 76
-
-        61 69 6c 61 62 6c 65 00 00 00 13 73 74 61 74 76 66 73 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 00 00
-
-        ...
-
-Server supports SFTP Extension: supported2
-
-        80 00 03 f9 00 00 00 17 00 00 09 ff 00 1f 01 ff 00 02 00 00 00 ff 00 00 00 00 00 00 00 00 00 10
-
-        00 00 00 0f 73 70 61 63 65 2d 61 76 61 69 6c 61 62 6c 65 00 00 00 13 73 74 61 74 76 66 73 40 6f
-
-        ...
-
-Server supports SFTP Extension: vendor-id
-
-        00 00 00 16 56 61 6e 44 79 6b 65 20 53 6f 66 74 77 61 72 65 2c 20 49 6e 63 2e 00 00 00 06 56 53
-
-        68 65 6c 6c 00 00 00 16 34 2e 36 2e 33 20 28 78 36 34 20 62 75 69 6c 64 20 32 36 39 30 29 00 04
-
-        ...
-
-Server supports SFTP Extension: versions
-
-        33 2c 34 2c 35 2c 36 2c 64 72 61 66 74 2d 69 65 74 66 2d 73 65 63 73 68 2d 66 69 6c 65 78 66 65
-
-        72 2d 31 31 40 76 61 6e 64 79 6b 65 2e 63 6f 6d 2c 70 61 72 74 69 61 6c 2d 76 36 40 76 61 6e 64
-
-        ...
-
-Server supports SFTP Extension: statvfs@openssh.com
-
-        32
-
-sftp protocol initialized
-
-
-
-Processing Line 4 [cd /SFTP/inbound]
-
-Changing remote directory to "/SFTP/inbound"
-
-
-
-Processing Line 5 [MPUT D:\Transfers\ANTHEM_ABC_MUSGROW\834s\152\152*.834]
-
-No destination folder. The current directory '/SFTP/inbound' is used.
-
-Getting Dirlisting
-
-# transferred 130 bytes in 0.046 seconds, 22.609 kbps ( 2826.185 Bps), transfer succeeded.
-
-Starting request
-Opening remote file "/SFTP/inbound/152260202080001.834" for writing
-
-Uploading local file "D:\Transfers\ANTHEM_ABC_MUSGROW\834s\152\152260202080001.834"
-
-# transferred 132387 bytes in 0.072 seconds, 14778.469 kbps ( 1847.309 kBps), transfer succeeded.
-
-Transfer request completed with status: Finished
-
-
-
-Processing Line 6 [CLOSE]
-
-Sending channel close message for channel 0760a2ce
-
-SSH Transport closed.
-
-Connection closed.  Ready for next connection.
