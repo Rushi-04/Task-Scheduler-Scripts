@@ -583,6 +583,20 @@ TASKS = [
             "days": ["tuesday", "wednesday"],
             "time": "09:25"
         }
+    },
+    {
+        "id": "LYRA_ELG_OEW",
+        "task_folder": r"\EDI Tasks",
+        "task_name": "LYRA ELG OEW",
+        "parser": "lyra_elg_oew",
+
+        "file_prefix": "4thdistricthealthfund_",
+        "file_extension": ".csv",
+
+        "schedule": {
+            "days": ["monday"],
+            "time": "07:00"
+        }
     }
 ]
 
@@ -592,19 +606,7 @@ EMAIL_API_URL = "http://104.153.122.230:8127/send-email"
 EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 
-# Task Name	Trigger Time
 
-
-# MONDAY TASKS
-# \EDI Tasks/LYRA ELG OEW	At 07:00 AM every Monday of every week, starting 09/19/2023
-# \EDI Tasks/L152 ANTHEM 834 TO WGS	At 08:00 AM every Monday of every week, starting 07/19/2022
-# \EDI Tasks/625 VBA 834	At 08:05 AM every Monday of every week, starting 01/01/2024
-# \EDI Tasks/DELTA P625 834	At 08:45 AM every Monday of every week, starting 10/20/2023
-# \EDI Tasks/MEI SAVRX 834	At 08:45 AM every Monday of every week, starting 08/26/2024
-# \EDI Tasks/MEI 834	At 09:30 AM every Monday of every week, starting 05/14/2024
-# \EDI Tasks/521 834 SAVRX	At 08:30 PM every Monday of every week, starting 07/07/2025
-# \EDI Tasks/S98 834 LABONE	At 08:45 PM every Monday of every week, starting 07/08/2025
-# \EDI Tasks/OEW 834 LABONE	At 09:40 PM every Monday of every week, starting 07/08/2025
 
 
 ## TUESDAY :-
@@ -660,15 +662,32 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 # -----------------------------------------------------------------
 
+# Task Name	Trigger Time
+
+
+# MONDAY TASKS
+# \EDI Tasks/LYRA ELG OEW	At 07:00 AM every Monday of every week, starting 09/19/2023
+# \EDI Tasks/L152 ANTHEM 834 TO WGS	At 08:00 AM every Monday of every week, starting 07/19/2022
+# \EDI Tasks/625 VBA 834	At 08:05 AM every Monday of every week, starting 01/01/2024
+# \EDI Tasks/DELTA P625 834	At 08:45 AM every Monday of every week, starting 10/20/2023
+# \EDI Tasks/MEI SAVRX 834	At 08:45 AM every Monday of every week, starting 08/26/2024
+# \EDI Tasks/MEI 834	At 09:30 AM every Monday of every week, starting 05/14/2024
+# \EDI Tasks/521 834 SAVRX	At 08:30 PM every Monday of every week, starting 07/07/2025
+# \EDI Tasks/S98 834 LABONE	At 08:45 PM every Monday of every week, starting 07/08/2025
+# \EDI Tasks/OEW 834 LABONE	At 09:40 PM every Monday of every week, starting 07/08/2025
+
+# -----------------------------------------------------------------
+
 
 # TEMPLATE
 
 # We have to add a new task now, this is the required info you requested to create a new task.
 
-# one line info: \EDI Tasks/AMO CareFirst Active and Retiree to SAM	At 09:25 AM every Tuesday, Wednesday of every week, starting 09/01/2025
+# one line info: \EDI Tasks/LYRA ELG OEW	At 07:00 AM every Monday of every week, starting 09/19/2023
 
 
-# Task Name: AMO CareFirst Active
-# Log Filename: Log.txt
-# Log Location: C:\Transfer_Programs\CAREFIRST\AMO_SAM
+# Task Name: LYRA ELG OEW
+# Log Filename: log.log
+# Log Location: C:\Transfer_Programs\Lyra
 # Sample : 
+
