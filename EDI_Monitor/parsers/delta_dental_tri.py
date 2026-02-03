@@ -1,17 +1,24 @@
 import re
+from datetime import datetime, timedelta
 from utils import today_yymmdd
 from .base import TraceParser
 
 class DeltaDentalTriParser(TraceParser):
     def __init__(self, base_dir, prefix, ext):
         super().__init__(base_dir)
-        # Handle cases where prefix/ext might be empty in config
         self.prefix = prefix or "TRI"
         self.ext = ext or ".834"
         
-        td = today_yymmdd()
-        # Pattern: TRI + YYMMDD + Digits + .834
-        self.pattern = re.compile(rf"{self.prefix}{td}\d+{re.escape(self.ext)}", re.IGNORECASE)
+        today = datetime.now()
+        yesterday = today - timedelta(days=1)
+        
+        t_str = today.strftime("%y%m%d")
+        y_str = yesterday.strftime("%y%m%d")
+        
+        # Matches prefix + (today|yesterday) + digits + ext
+        # Regex: TRI(260203|260202)\d+\.834
+        self.pattern = re.compile(rf"{self.prefix}({t_str}|{y_str})\d+{re.escape(self.ext)}", re.IGNORECASE)
+        print(f"DeltaDentalTri: Searching for pattern: {self.pattern.pattern}")
 
     def find_file_in_line(self, line):
         m = self.pattern.search(line)
