@@ -106,9 +106,8 @@ TASKS = [
         "task_name": "TRI 834 to DELTA DENTAL",
         "parser": "delta_dental_tri",
 
-        # not used by this parser
-        "file_prefix": "",
-        "file_extension": "",
+        "file_prefix": "TRI",
+        "file_extension": ".834",
 
         "schedule": {
             "days": ["tuesday"],
@@ -695,7 +694,7 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 # MONDAY TASKS
 
-# \EDI Tasks/625 VBA 834	At 08:05 AM every Monday of every week, starting 01/01/2024
+
 # \EDI Tasks/DELTA P625 834	At 08:45 AM every Monday of every week, starting 10/20/2023
 # \EDI Tasks/MEI SAVRX 834	At 08:45 AM every Monday of every week, starting 08/26/2024
 # \EDI Tasks/MEI 834	At 09:30 AM every Monday of every week, starting 05/14/2024
@@ -716,4 +715,14 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 # Log Filename: trace.txt
 # Log Location: C:\Transfer_Programs\VBA\P625
 # Sample : 
+
+
+
+
+
+
+
+
+
+
 

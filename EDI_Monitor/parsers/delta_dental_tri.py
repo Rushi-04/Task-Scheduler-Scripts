@@ -1,30 +1,28 @@
-import os
-from datetime import datetime
+import re
+from utils import today_yymmdd
+from .base import TraceParser
 
+class DeltaDentalTriParser(TraceParser):
+    def __init__(self, base_dir, prefix, ext):
+        super().__init__(base_dir)
+        # Handle cases where prefix/ext might be empty in config
+        self.prefix = prefix or "TRI"
+        self.ext = ext or ".834"
+        
+        td = today_yymmdd()
+        # Pattern: TRI + YYMMDD + Digits + .834
+        self.pattern = re.compile(rf"{self.prefix}{td}\d+{re.escape(self.ext)}", re.IGNORECASE)
+
+    def find_file_in_line(self, line):
+        m = self.pattern.search(line)
+        if m:
+            print(f"Found file: {m.group()}")
+            return m.group()
+        return None
 
 def check(base_dir, prefix, ext):
     """
-    base_dir: C:\\Transfer_Programs\\DELTA_DENTAL\\TRI_County
+    Check TRI 834 file in trace.txt
     """
-
-    trace_path = os.path.join(base_dir, "trace.txt")
-    if not os.path.isfile(trace_path):
-        return None, False
-
-    today = datetime.now().strftime("%y%m%d")
-
-    with open(trace_path, "r", errors="ignore") as f:
-        lines = f.readlines()
-
-    found_today = False
-
-    # scan bottom → top
-    for line in reversed(lines):
-        # detect today's TRI file
-        if today in line and "TRI" in line:
-            found_today = True
-
-        if found_today and "Transfer request completed with status: Finished" in line:
-            return "FINISHED", True
-
-    return None, False
+    parser = DeltaDentalTriParser(base_dir, prefix, ext)
+    return parser.check()
