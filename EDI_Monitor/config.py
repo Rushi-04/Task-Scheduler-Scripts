@@ -736,6 +736,20 @@ TASKS = [
             "days": ["wednesday"],
             "time": "08:45"
         }
+    },
+    {
+        "id": "TRI_SAVRX_NON_MEDICARE_834",
+        "task_folder": r"\EDI Tasks",
+        "task_name": "TRI SAVRX NON MEDICARE 834",
+        "parser": "savrx_generic",
+
+        "file_prefix": "TRICTYBLD_",
+        "file_extension": ".txt",
+
+        "schedule": {
+            "days": ["wednesday"],
+            "time": "08:45"
+        }
     }
 ]
 
@@ -818,8 +832,8 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 We have to add a new task now, this is the required info you requested to create a new task.
 
-one line info: \EDI Tasks/SAVRX J84	At 08:45 AM every Wednesday of every week, starting 12/22/2025
-Task Name: SAVRX J84
+one line info: \EDI Tasks/TRI SAVRX NON MEDICARE 834	At 08:45 AM every Wednesday of every week, starting 04/30/2025
+Task Name: TRI SAVRX NON MEDICARE 834
 Log Filename: trace.txt
-Log Location: C:\Transfer_Programs\SAVRX\J84
+Log Location: C:\Transfer_Programs\SAVRX\TRI_NONMEDICARE
 Sample : 
