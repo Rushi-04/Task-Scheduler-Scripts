@@ -780,15 +780,6 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 
 
-
-
-
-
-
-# \EDI Tasks/TRI SAVRX NON MEDICARE 834	At 08:45 AM every Wednesday of every week, starting 04/30/2025
-
-
-
 # Thursday Tasks
 
 
@@ -830,10 +821,10 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 # TEMPLATE
 
-We have to add a new task now, this is the required info you requested to create a new task.
+# We have to add a new task now, this is the required info you requested to create a new task.
 
-one line info: \EDI Tasks/TRI SAVRX NON MEDICARE 834	At 08:45 AM every Wednesday of every week, starting 04/30/2025
-Task Name: TRI SAVRX NON MEDICARE 834
-Log Filename: trace.txt
-Log Location: C:\Transfer_Programs\SAVRX\TRI_NONMEDICARE
-Sample : 
+# one line info: \EDI Tasks/TRI SAVRX NON MEDICARE 834	At 08:45 AM every Wednesday of every week, starting 04/30/2025
+# Task Name: TRI SAVRX NON MEDICARE 834
+# Log Filename: trace.txt
+# Log Location: C:\Transfer_Programs\SAVRX\TRI_NONMEDICARE
+# Sample : 
