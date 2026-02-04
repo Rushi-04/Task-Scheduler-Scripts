@@ -722,6 +722,20 @@ TASKS = [
             "days": ["wednesday"],
             "time": "08:05"
         }
+    },
+    {
+        "id": "SAVRX_J84",
+        "task_folder": r"\EDI Tasks",
+        "task_name": "SAVRX J84",
+        "parser": "savrx_generic",
+
+        "file_prefix": "J84_EDI",
+        "file_extension": ".txt",
+
+        "schedule": {
+            "days": ["wednesday"],
+            "time": "08:45"
+        }
     }
 ]
 
@@ -756,8 +770,7 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 
 
-# \EDI Tasks/MEI CANCER ELIGIBILITY	At 08:05 AM every Wednesday of every week, starting 07/17/2025
-# \EDI Tasks/SAVRX J84	At 08:45 AM every Wednesday of every week, starting 12/22/2025
+
 # \EDI Tasks/TRI SAVRX NON MEDICARE 834	At 08:45 AM every Wednesday of every week, starting 04/30/2025
 
 
@@ -805,9 +818,8 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 We have to add a new task now, this is the required info you requested to create a new task.
 
-one line info: \EDI Tasks/MEI CANCER ELIGIBILITY	At 08:05 AM every Wednesday of every week, starting 07/17/2025
-Task Name: MEI CANCER ELIGIBILITY
-Log Filename: log.txt
-Log Location: C:\Transfer_Programs\CANCER\Eligibility\MEI
+one line info: \EDI Tasks/SAVRX J84	At 08:45 AM every Wednesday of every week, starting 12/22/2025
+Task Name: SAVRX J84
+Log Filename: trace.txt
+Log Location: C:\Transfer_Programs\SAVRX\J84
 Sample : 
-
