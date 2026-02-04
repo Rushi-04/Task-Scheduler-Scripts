@@ -247,13 +247,13 @@ TASKS = [
         }
     },
     {
-        "id": "DELTA_DENTAL_OEW",
+        "id": "OEW_834_DELTA_DENTAL",
         "task_folder": r"\EDI Tasks",
         "task_name": "OEW 834 to DELTA DENTAL",  # ← EXACT
         "parser": "delta_dental_oew",
 
-        "file_prefix": "",
-        "file_extension": "",
+        "file_prefix": "4DIBEW",
+        "file_extension": ".pgp",
 
         "schedule": {
             "days": ["wednesday"],
@@ -652,7 +652,7 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 # Task Name	Trigger Time
 
-# \EDI Tasks/OEW 834 to DELTA DENTAL	At 12:40 AM every Wednesday of every week, starting 06/18/2025
+# 
 # \EDI Tasks/Sword_L82	At 05:00 AM every Wednesday of every week, starting 09/09/2025
 # \EDI Tasks/Sword_S98	At 05:05 AM every Wednesday of every week, starting 09/11/2025
 # \EDI Tasks/CIGNA TRI	At 05:15 AM every Wednesday of every week, starting 12/17/2025
@@ -707,22 +707,12 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 # TEMPLATE
 
-# We have to add a new task now, this is the required info you requested to create a new task.
+We have to add a new task now, this is the required info you requested to create a new task.
 
-# one line info: \EDI Tasks/625 VBA 834	At 08:05 AM every Monday of every week, starting 01/01/2024
+one line info: \EDI Tasks/OEW 834 to DELTA DENTAL	At 12:40 AM every Wednesday of every week, starting 06/18/2025
 
-# Task Name: 625 VBA 834
-# Log Filename: trace.txt
-# Log Location: C:\Transfer_Programs\VBA\P625
-# Sample : 
-
-
-
-
-
-
-
-
-
-
+Task Name: OEW 834 to DELTA DENTAL
+Log Filename: trace.txt
+Log Location: C:\Transfer_Programs\DELTA_DENTAL\OEW
+Sample : 
 
