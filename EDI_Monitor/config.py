@@ -699,7 +699,7 @@ TASKS = [
         "id": "MEI_834_TELEDOC",
         "task_folder": r"\EDI Tasks",
         "task_name": "MEI 834 TELEDOC",
-        "parser": "mei_teledoc",
+        "parser": "mei_generic",
 
         "file_prefix": "MEITD_",
         "file_extension": ".834",
@@ -707,6 +707,20 @@ TASKS = [
         "schedule": {
             "days": ["wednesday"],
             "time": "08:00"
+        }
+    },
+    {
+        "id": "MEI_CANCER_ELIGIBILITY",
+        "task_folder": r"\EDI Tasks",
+        "task_name": "MEI CANCER ELIGIBILITY",
+        "parser": "mei_generic",
+
+        "file_prefix": "MEI_CANCER_ELIGIBILITY_",
+        "file_extension": ".xls",
+
+        "schedule": {
+            "days": ["wednesday"],
+            "time": "08:05"
         }
     }
 ]
@@ -741,7 +755,7 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 
 
-# \EDI Tasks/MEI 834 TELEDOC	At 08:00 AM every Wednesday of every week, starting 07/02/2025
+
 # \EDI Tasks/MEI CANCER ELIGIBILITY	At 08:05 AM every Wednesday of every week, starting 07/17/2025
 # \EDI Tasks/SAVRX J84	At 08:45 AM every Wednesday of every week, starting 12/22/2025
 # \EDI Tasks/TRI SAVRX NON MEDICARE 834	At 08:45 AM every Wednesday of every week, starting 04/30/2025
@@ -791,9 +805,9 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 We have to add a new task now, this is the required info you requested to create a new task.
 
-one line info: \EDI Tasks/MEI 834 TELEDOC	At 08:00 AM every Wednesday of every week, starting 07/02/2025
-
-Task Name: MEI 834 TELEDOC
-Log Filename: trace.txt
-Log Location: C:\Transfer_Programs\TELADOC\MEI
+one line info: \EDI Tasks/MEI CANCER ELIGIBILITY	At 08:05 AM every Wednesday of every week, starting 07/17/2025
+Task Name: MEI CANCER ELIGIBILITY
+Log Filename: log.txt
+Log Location: C:\Transfer_Programs\CANCER\Eligibility\MEI
 Sample : 
+
