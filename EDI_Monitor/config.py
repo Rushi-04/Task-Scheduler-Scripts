@@ -694,6 +694,20 @@ TASKS = [
             "days": ["wednesday"],
             "time": "06:45"
         }
+    },
+    {
+        "id": "MEI_834_TELEDOC",
+        "task_folder": r"\EDI Tasks",
+        "task_name": "MEI 834 TELEDOC",
+        "parser": "mei_teledoc",
+
+        "file_prefix": "MEITD_",
+        "file_extension": ".834",
+
+        "schedule": {
+            "days": ["wednesday"],
+            "time": "08:00"
+        }
     }
 ]
 
@@ -726,8 +740,7 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 
 
-# \EDI Tasks/J84 ANTHEM WGS 834	At 06:45 AM every Wednesday of every week, starting 05/12/2025
-# \EDI Tasks/AMO Carefirst Active	At 07:15 AM every Wednesday of every week, starting 09/01/2025
+
 # \EDI Tasks/MEI 834 TELEDOC	At 08:00 AM every Wednesday of every week, starting 07/02/2025
 # \EDI Tasks/MEI CANCER ELIGIBILITY	At 08:05 AM every Wednesday of every week, starting 07/17/2025
 # \EDI Tasks/SAVRX J84	At 08:45 AM every Wednesday of every week, starting 12/22/2025
@@ -778,10 +791,9 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 We have to add a new task now, this is the required info you requested to create a new task.
 
-one line info: \EDI Tasks/J84 ANTHEM WGS 834	At 06:45 AM every Wednesday of every week, starting 05/12/2025
+one line info: \EDI Tasks/MEI 834 TELEDOC	At 08:00 AM every Wednesday of every week, starting 07/02/2025
 
-Task Name: J84 ANTHEM WGS 834
+Task Name: MEI 834 TELEDOC
 Log Filename: trace.txt
-Log Location: C:\Transfer_Programs\ANTHEM_WGS\834_Pgms\J84
+Log Location: C:\Transfer_Programs\TELADOC\MEI
 Sample : 
-
