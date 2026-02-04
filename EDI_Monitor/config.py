@@ -238,8 +238,8 @@ TASKS = [
         "task_name": "AMO CareFirst  Active and Retiree to SAM",  # ← EXACT
         "parser": "carefirst_amo_sam",
 
-        "file_prefix": "",
-        "file_extension": "",
+        "file_prefix": "AMO_834P_",
+        "file_extension": ".txt",
 
         "schedule": {
             "days": ["tuesday", "wednesday"],
@@ -572,7 +572,7 @@ TASKS = [
     {
         "id": "AMO_CAREFIRST_ACTIVE",
         "task_folder": r"\EDI Tasks",
-        "task_name": "AMO CareFirst Active",
+        "task_name": "AMO Carefirst Active", # ← Fixed 'f' in Carefirst
         "parser": "amo_carefirst_active",
 
         "file_prefix": "AMO_834P_",
@@ -624,6 +624,34 @@ TASKS = [
             "days": ["monday"],
             "time": "08:05"
         }
+    },
+    {
+        "id": "SWORD_L82",
+        "task_folder": r"\EDI Tasks",
+        "task_name": "Sword_L82",
+        "parser": "sword_generic",
+
+        "file_prefix": "L82-Eligibility-",
+        "file_extension": ".xls",
+
+        "schedule": {
+            "days": ["wednesday"],
+            "time": "05:00"
+        }
+    },
+    {
+        "id": "SWORD_S98",
+        "task_folder": r"\EDI Tasks",
+        "task_name": "Sword_S98",
+        "parser": "sword_generic",
+
+        "file_prefix": "S98-Eligibility-",
+        "file_extension": ".xls",
+
+        "schedule": {
+            "days": ["wednesday"],
+            "time": "05:05"
+        }
     }
 ]
 
@@ -652,8 +680,7 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 # Task Name	Trigger Time
 
-# 
-# \EDI Tasks/Sword_L82	At 05:00 AM every Wednesday of every week, starting 09/09/2025
+
 # \EDI Tasks/Sword_S98	At 05:05 AM every Wednesday of every week, starting 09/11/2025
 # \EDI Tasks/CIGNA TRI	At 05:15 AM every Wednesday of every week, starting 12/17/2025
 # \EDI Tasks/S98 834 VSP	At 06:30 AM every Wednesday of every week, starting 07/08/2025
@@ -709,10 +736,133 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 We have to add a new task now, this is the required info you requested to create a new task.
 
-one line info: \EDI Tasks/OEW 834 to DELTA DENTAL	At 12:40 AM every Wednesday of every week, starting 06/18/2025
+one line info: \EDI Tasks/Sword_S98	At 05:05 AM every Wednesday of every week, starting 09/11/2025
 
-Task Name: OEW 834 to DELTA DENTAL
-Log Filename: trace.txt
-Log Location: C:\Transfer_Programs\DELTA_DENTAL\OEW
+Task Name: Sword_S98
+Log Filename: Log.txt
+Log Location: C:\Transfer_Programs\SWORD\S98
 Sample : 
 
+
+C:\Windows\system32>DEL D:\Transfers\Sword\S98\sword* 
+
+C:\Windows\system32>REM load data from BICC 
+
+C:\Windows\system32>"C:\Program Files (x86)\IBM\Client Access\rxferpcb" C:\Transfer_Programs\SWORD\S98\sword.dtf  bicc sailfish 
+
+IBM i Access for Windows
+Version 7  Release 1  Level 0
+IBM i Access Data Transfer RXFERPCB
+(C) Copyright IBM Corporation and Others 1984, 2010.  All rights reserved.
+U.S. Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+Licensed Materials - Property of IBM
+
+
+Transfer request C:\Transfer_Programs\SWORD\S98\sword.dtf SUCCESSFUL.
+
+   Elapsed transfer time: 0 hours 0 minutes 1.15 seconds (1015 ms)
+   CompletionTime          = 2026-2-4 5.5.1.0
+   Rows Transferred        = 2242
+   Data Warnings Occurred  = No
+   Data Errors Occurred    = No
+
+C:\Windows\system32>REM rename file  
+
+C:\Windows\system32>for /F "tokens=2-4 delims=/ " %a in ('date /t') do set filename=S98-Eligibility-%c%a%b.xls 
+
+C:\Windows\system32>set filename=S98-Eligibility-20260204.xls 
+
+C:\Windows\system32>echo S98-Eligibility-20260204.xls 
+S98-Eligibility-20260204.xls
+
+C:\Windows\system32>ren D:\Transfers\Sword\S98\sword.xls S98-Eligibility-20260204.xls 
+
+C:\Windows\system32>ftpscrpt -b -p ProductionSites!SWORD_S98 -f C:\Transfer_Programs\SWORD\S98\FTPscript_Put.scp 
+
+
+Processing Line 1 [TRACE  Screen]
+
+
+
+Processing Line 2 [LOG Screen]
+
+
+
+Processing Line 3 [Connect]
+
+Finding Host ftp.us.swordhealth.com ...
+
+Connecting to 35.192.106.126:22
+
+Connected to 35.192.106.126:22 in 0.033076 seconds, Waiting for Server Response
+
+Server Welcome: SSH-2.0-SFTPGo_2.5.1
+
+Client Version: SSH-2.0-WS_FTP-12.9.0-0
+
+RSA Signature Verified
+
+Session Keys Created
+Ciphers Created
+
+New Client->Server ciphers in place.
+
+New Client->Server ciphers in place.
+
+Completed SSH Key Exchange.  New Keys in place.
+
+Trying authentication method: "publickey"
+
+User Authenticated OK!
+
+Completed SSH User Authentication.
+
+Started subsystem "sftp" on channel 0760a2ce
+
+SFTP Protocol Version 3 OK
+
+Server supports SFTP Extension: statvfs@openssh.com
+
+        32
+
+sftp protocol initialized
+
+Changing remote directory to "/outbound/eligibility/files"
+
+
+
+Processing Line 4 [lcd D:\Transfers\SWORD\S98]
+
+
+
+Processing Line 5 [mput S98*]
+
+No destination folder. The current directory '/outbound/eligibility/files' is used.
+
+Getting Dirlisting
+
+# transferred 4387 bytes in 0.063 seconds, 552.769 kbps ( 69.096 kBps), transfer succeeded.
+
+Starting request
+Opening remote file "/outbound/eligibility/files/S98-Eligibility-20260204.xls" for writing
+
+Uploading local file "D:\Transfers\SWORD\S98\S98-Eligibility-20260204.xls"
+
+# transferred 1383936 bytes in 0.585 seconds, 18938.071 kbps ( 2367.259 kBps), transfer succeeded.
+
+Transfer request completed with status: Finished
+
+
+
+Processing Line 6 [CLOSE]
+
+Sending channel close message for channel 0760a2ce
+
+SSH Transport closed.
+
+Connection closed.  Ready for next connection.
+
+
+C:\Windows\system32>move D:\Transfers\Sword\S98\S98-Eligibility-20260204.xls D:\Transfers\Sword\S98\backups\ 
+        1 file(s) moved.

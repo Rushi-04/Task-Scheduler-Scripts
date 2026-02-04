@@ -1,30 +1,35 @@
-import os
-from datetime import datetime
+import re
+from datetime import datetime, timedelta
+from .base import TraceParser
 
+class CareFirstAmoRetireeParser(TraceParser):
+    def __init__(self, base_dir, prefix, ext):
+        super().__init__(base_dir, trace_filename="Log.txt")
+        
+        today = datetime.now()
+        yesterday = today - timedelta(days=1)
+        
+        t_str = today.strftime("%Y%m%d")
+        y_str = yesterday.strftime("%Y%m%d")
+        
+        # Pattern: AMORET_834P_ + YYYYMMDD
+        self.pattern = re.compile(rf"AMORET_834P_({t_str}|{y_str})", re.IGNORECASE)
+        print(f"CareFirstAmoRetiree: Searching for pattern: {self.pattern.pattern}")
+
+    def find_file_in_line(self, line):
+        m = self.pattern.search(line)
+        if m:
+            # Try to grab the full filename: AMORET_834P_YYYYMMDD.HHMMSS.txt
+            match_file = re.search(r"(AMORET_834P_\d{8}\.\d{6}\.txt)", line, re.IGNORECASE)
+            if match_file:
+                print(f"Found file: {match_file.group(1)}")
+                return match_file.group(1)
+            return m.group()
+        return None
 
 def check(base_dir, prefix, ext):
     """
-    base_dir: C:\\Transfer_Programs\\CAREFIRST\\AMO_Ret
+    Check AMO CareFirst Retiree in Log.txt
     """
-
-    log_path = os.path.join(base_dir, "Log.txt")
-    if not os.path.isfile(log_path):
-        return None, False
-
-    today = datetime.now().strftime("%Y%m%d")
-
-    with open(log_path, "r", errors="ignore") as f:
-        lines = f.readlines()
-
-    found_today = False
-
-    # scan from bottom (latest run)
-    for line in reversed(lines):
-        # Detect today's renamed file
-        if today in line and "AMORET_834P_" in line:
-            found_today = True
-
-        if found_today and "Transfer request completed with status: Finished" in line:
-            return "FINISHED", True
-
-    return None, False
+    parser = CareFirstAmoRetireeParser(base_dir, prefix, ext)
+    return parser.check()
