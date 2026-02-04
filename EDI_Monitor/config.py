@@ -680,6 +680,20 @@ TASKS = [
             "days": ["wednesday"],
             "time": "06:30"
         }
+    },
+    {
+        "id": "J84_ANTHEM_WGS_834",
+        "task_folder": r"\EDI Tasks",
+        "task_name": "J84 ANTHEM WGS 834",
+        "parser": "anthem_generic",
+
+        "file_prefix": "J84",
+        "file_extension": ".834",
+
+        "schedule": {
+            "days": ["wednesday"],
+            "time": "06:45"
+        }
     }
 ]
 
@@ -711,7 +725,7 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 
 
-# \EDI Tasks/S98 834 VSP	At 06:30 AM every Wednesday of every week, starting 07/08/2025
+
 # \EDI Tasks/J84 ANTHEM WGS 834	At 06:45 AM every Wednesday of every week, starting 05/12/2025
 # \EDI Tasks/AMO Carefirst Active	At 07:15 AM every Wednesday of every week, starting 09/01/2025
 # \EDI Tasks/MEI 834 TELEDOC	At 08:00 AM every Wednesday of every week, starting 07/02/2025
@@ -764,97 +778,10 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 We have to add a new task now, this is the required info you requested to create a new task.
 
-one line info: \EDI Tasks/S98 834 VSP	At 06:30 AM every Wednesday of every week, starting 07/08/2025
+one line info: \EDI Tasks/J84 ANTHEM WGS 834	At 06:45 AM every Wednesday of every week, starting 05/12/2025
 
-Task Name: S98 834 VSP
+Task Name: J84 ANTHEM WGS 834
 Log Filename: trace.txt
-Log Location: C:\Transfer_Programs\VSP\834_Pgms\S98
+Log Location: C:\Transfer_Programs\ANTHEM_WGS\834_Pgms\J84
 Sample : 
-
-
-
-Processing Line 1 [TRACE  C:\Transfer_Programs\VSP\834_Pgms\S98\trace.txt]
-
-
-
-Processing Line 2 [LOG C:\Transfer_Programs\VSP\834_Pgms\S98\log.txt]
-
-
-
-Processing Line 3 [Connect]
-
-Finding Host ftp.vsp.com ...
-
-Connecting to 198.135.203.42:21
-
-Connected to 198.135.203.42:21 in 0.065525 seconds, Waiting for Server Response
-
-220 Server ready.
-
-Host type (1): AUTO
-
-USER a0022967
-
-331 User name okay, need password for a0022967.
-
-PASS (hidden)
-
-230 User logged in, proceed.
-
-SYST
-
-215 UNIX Type: Apache FtpServer
-
-Host type (2): Unix (Standard)
-
-PWD
-
-257 "/" is current directory.
-
-CWD /ansi
-
-250 Directory changed to /ansi
-
-
-
-Processing Line 4 [MPUT D:\Transfers\VSP\834s\S98\*.TXT]
-
-No destination folder. The current directory '/ansi' is used.
-
-PWD
-
-257 "/ansi" is current directory.
-
-TYPE I
-
-200 Command TYPE okay.
-
-PASV
-
-227 Entering Passive Mode (198,135,203,42,125,135)
-
-connecting data channel to 198.135.203.42:125,135(32135)
-
-data channel connected to 198.135.203.42:125,135(32135)
-
-LIST
-
-150 File status okay; about to open data connection.
-
-# transferred 0 bytes in 0.010 seconds, 0.000 bps ( 0.000 Bps), transfer succeeded.
-
-226 Closing data connection.
-
-Starting request
-Transfer request completed with status: Finished
-
-
-
-Processing Line 5 [CLOSE]
-
-QUIT
-
-221 Goodbye.
-
-Connection closed.  Ready for next connection.
 
