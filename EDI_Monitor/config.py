@@ -666,6 +666,20 @@ TASKS = [
             "days": ["wednesday"],
             "time": "05:15"
         }
+    },
+    {
+        "id": "S98_834_VSP",
+        "task_folder": r"\EDI Tasks",
+        "task_name": "S98 834 VSP",
+        "parser": "vsp_generic",
+
+        "file_prefix": "",
+        "file_extension": ".TXT",
+
+        "schedule": {
+            "days": ["wednesday"],
+            "time": "06:30"
+        }
     }
 ]
 
@@ -696,7 +710,7 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 
 
-# \EDI Tasks/CIGNA TRI	At 05:15 AM every Wednesday of every week, starting 12/17/2025
+
 # \EDI Tasks/S98 834 VSP	At 06:30 AM every Wednesday of every week, starting 07/08/2025
 # \EDI Tasks/J84 ANTHEM WGS 834	At 06:45 AM every Wednesday of every week, starting 05/12/2025
 # \EDI Tasks/AMO Carefirst Active	At 07:15 AM every Wednesday of every week, starting 09/01/2025
@@ -750,99 +764,97 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 
 We have to add a new task now, this is the required info you requested to create a new task.
 
-one line info: \EDI Tasks/CIGNA TRI	At 05:15 AM every Wednesday of every week, starting 12/17/2025
+one line info: \EDI Tasks/S98 834 VSP	At 06:30 AM every Wednesday of every week, starting 07/08/2025
 
-Task Name: CIGNA TRI
+Task Name: S98 834 VSP
 Log Filename: trace.txt
-Log Location: C:\Transfer_Programs\Cigna\TRI
+Log Location: C:\Transfer_Programs\VSP\834_Pgms\S98
 Sample : 
 
-Failed to open file C:\Transfer_Programs\CIGNA\TRI\log.txt
+
+
+Processing Line 1 [TRACE  C:\Transfer_Programs\VSP\834_Pgms\S98\trace.txt]
 
 
 
-Processing Line 1 [TRACE  C:\Transfer_Programs\CIGNA\TRI\trace.txt]
-
-
-
-Processing Line 2 [LOG C:\Transfer_Programs\CIGNA\TRI\log.txt]
+Processing Line 2 [LOG C:\Transfer_Programs\VSP\834_Pgms\S98\log.txt]
 
 
 
 Processing Line 3 [Connect]
 
-Finding Host sftp-b2bgateway.sys.cigna.com ...
+Finding Host ftp.vsp.com ...
 
-Connecting to 170.48.10.109:22
+Connecting to 198.135.203.42:21
 
-Connected to 170.48.10.109:22 in 0.033897 seconds, Waiting for Server Response
+Connected to 198.135.203.42:21 in 0.065525 seconds, Waiting for Server Response
 
-Server Welcome: SSH-2.0-CIGNA SFTP Server Ready!
+220 Server ready.
 
-Client Version: SSH-2.0-WS_FTP-12.9.0-0
+Host type (1): AUTO
 
-RSA Signature Verified
+USER a0022967
 
-Session Keys Created
-Ciphers Created
+331 User name okay, need password for a0022967.
 
-New Client->Server ciphers in place.
+PASS (hidden)
 
-New Client->Server ciphers in place.
+230 User logged in, proceed.
 
-Completed SSH Key Exchange.  New Keys in place.
+SYST
 
-Trying authentication method: "password"
+215 UNIX Type: Apache FtpServer
 
-CIGNA SFTP Server Ready!
-User Authenticated OK!
+Host type (2): Unix (Standard)
 
-Completed SSH User Authentication.
+PWD
 
-Started subsystem "sftp" on channel 0760a2ce
+257 "/" is current directory.
 
-SFTP Protocol Version 3 OK
+CWD /ansi
 
-Server supports SFTP Extension: newline@vandyke.com
-
-        0a
-
-Server supports SFTP Extension: vendor-id
-
-        00 00 00 11 4a 41 44 41 50 54 49 56 45 20 4c 69 6d 69 74 65 64 00 00 00 0d 4d 61 76 65 72 69 63
-
-        6b 20 53 53 48 44 00 00 00 06 31 2e 37 2e 36 30 00 00 00 00 00 00 00 00
-
-sftp protocol initialized
-
-Changing remote directory to "/Outbox"
+250 Directory changed to /ansi
 
 
 
-Processing Line 4 [MPUT D:\Transfers\CIGNA\TRI\*.txt]
+Processing Line 4 [MPUT D:\Transfers\VSP\834s\S98\*.TXT]
 
-No destination folder. The current directory '/Outbox' is used.
+No destination folder. The current directory '/ansi' is used.
 
-Getting Dirlisting
+PWD
 
-# transferred 0 bytes in 0.036 seconds, 0.000 bps ( 0.000 Bps), transfer succeeded.
+257 "/ansi" is current directory.
+
+TYPE I
+
+200 Command TYPE okay.
+
+PASV
+
+227 Entering Passive Mode (198,135,203,42,125,135)
+
+connecting data channel to 198.135.203.42:125,135(32135)
+
+data channel connected to 198.135.203.42:125,135(32135)
+
+LIST
+
+150 File status okay; about to open data connection.
+
+# transferred 0 bytes in 0.010 seconds, 0.000 bps ( 0.000 Bps), transfer succeeded.
+
+226 Closing data connection.
 
 Starting request
-Opening remote file "/Outbox/XO16000__xo10001i.142810.020426.txt" for writing
-
-Uploading local file "D:\Transfers\CIGNA\TRI\XO16000__xo10001i.142810.020426.txt"
-
-# transferred 748311 bytes in 0.374 seconds, 15999.812 kbps ( 1999.976 kBps), transfer succeeded.
-
 Transfer request completed with status: Finished
 
 
 
 Processing Line 5 [CLOSE]
 
-Sending channel close message for channel 0760a2ce
+QUIT
 
-SSH Transport closed.
+221 Goodbye.
 
 Connection closed.  Ready for next connection.
 
