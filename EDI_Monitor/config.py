@@ -364,7 +364,8 @@ TASKS = [
         "task_name": "L82 834 SAVRX",
         "parser": "savrx_l82",
 
-        "file_prefix": "SAVRX_L82_", # Prefix from general SAVRX pattern? Wait, let's check prefix.
+        # "file_prefix": "SAVRX_L82_", # Prefix from general SAVRX pattern? Wait, let's check prefix.
+        "file_prefix": "L82EDI_", # Corrected from log
         "file_extension": ".pgp",
 
         "schedule": {
@@ -786,9 +787,9 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 # --------------------------- Friday ------------------------------
 
 
-# \EDI Tasks/997 Recon Download Anthem_WGS	At 05:00 AM every 1 day(s), starting 09/01/2025 -- partial complete
+# \EDI Tasks/997 Recon Download Anthem_WGS	At 05:00 AM every 1 day(s), starting 09/01/2025 -- partial complete -- done
 
-# \EDI Tasks/CAPRX HWL	At 06:30 AM every Monday, Tuesday, Wednesday, Thursday, Friday of every week, starting 04/27/2023
+# \EDI Tasks/CAPRX HWL	At 06:30 AM every Monday, Tuesday, Wednesday, Thursday, Friday of every week, starting 04/27/2023 -- done
 
 
 # \EDI Tasks/ABC Claim INV_ErrorReport_AS400	At 07:30 AM every Tuesday, Wednesday, Thursday, Friday, Saturday of every week, starting 12/22/2022
@@ -828,3 +829,4 @@ EMAIL_RECIPIENTS = ["borkarrushi028@gmail.com"]
 # Log Filename: trace.txt
 # Log Location: C:\Transfer_Programs\SAVRX\TRI_NONMEDICARE
 # Sample : 
+# python main.py --date 2026-02-05 --time 08:00
